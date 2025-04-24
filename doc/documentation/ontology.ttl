@@ -1,0 +1,479 @@
+@prefix : <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#> .
+
+<http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent> rdf:type owl:Ontology ;
+                                                                         rdfs:comment """@Author
+Roger Vinyals Roig
+@Title
+Turisme Intel·ligent i Recomenacions
+@Description
+L’ontologia servira per descriure l’informació respecte el sector turistic a diferentes ciutats amb l’objectiu de recomenar les principals atraccions turistiques i restaurants als usuaris""" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#goodToSleep
+:goodToSleep rdf:type owl:ObjectProperty ;
+             rdfs:domain :Event ;
+             rdfs:range :Hotel ;
+             rdfs:comment "Relate an event or an attraction with a hotel where you can sleep nearby" ;
+             rdfs:label "goodToSleep" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasAttraction
+:hasAttraction rdf:type owl:ObjectProperty ;
+               rdfs:domain :City ;
+               rdfs:range :Attraction ;
+               rdfs:comment "If a City have attractions" ;
+               rdfs:label "hasAttraction" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasEvent
+:hasEvent rdf:type owl:ObjectProperty ;
+          rdfs:domain :City ;
+          rdfs:range :Event ;
+          rdfs:comment "If a City have events" ;
+          rdfs:label "hasEvent" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasHotel
+:hasHotel rdf:type owl:ObjectProperty ;
+          rdfs:domain :City ;
+          rdfs:range :Hotel ;
+          rdfs:comment "If a City have hotels" ;
+          rdfs:label "hasHotel" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasRestaurant
+:hasRestaurant rdf:type owl:ObjectProperty ;
+               rdfs:domain :City ;
+               rdfs:range :Restaurant ;
+               rdfs:comment "If a City have restaurants" ;
+               rdfs:label "hasRestaurants" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#isIn
+:isIn rdf:type owl:ObjectProperty ;
+      rdfs:domain :Hotel ;
+      rdfs:range :City ;
+      rdfs:comment "Relates the places with the city where they are" ;
+      rdfs:label "Is In" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#cityName
+:cityName rdf:type owl:DatatypeProperty ;
+          rdfs:domain :City ;
+          rdfs:range xsd:string ;
+          rdfs:comment "City Name" ;
+          rdfs:label "Name" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hotelName
+:hotelName rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Hotel ;
+           rdfs:range xsd:string ;
+           rdfs:comment "Hotel Name" ;
+           rdfs:label "Name" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#location
+:location rdf:type owl:DatatypeProperty ;
+          rdfs:domain :City ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Geographic coordinates of the city" ;
+          rdfs:label "Location" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#rating
+:rating rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Hotel ;
+        rdfs:range xsd:decimal ;
+        rdfs:comment "Rating by the users" ;
+        rdfs:label "Rating" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#transportType
+:transportType rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Transport ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Type of transport" ;
+               rdfs:label "transport Type" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction
+:ArchitecturalAttraction rdf:type owl:Class ;
+                         rdfs:subClassOf :Attraction ;
+                         rdfs:comment "A place where you can have a pleasant time doing an activity related to architecture" ;
+                         rdfs:label "Architectural Attraction" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AsianRestaurant
+:AsianRestaurant rdf:type owl:Class ;
+                 rdfs:subClassOf :Restaurant ;
+                 rdfs:comment "Place to eat foot from Asia" ;
+                 rdfs:label "Asian Restaurant" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Attraction
+:Attraction rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :location ;
+                              owl:someValuesFrom xsd:string
+                            ] ;
+            owl:disjointWith :Restaurant ;
+            rdfs:comment "A place where you can have a pleasant time doing an activity" ;
+            rdfs:label "Attraction" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AutumnEvent
+:AutumnEvent rdf:type owl:Class ;
+             rdfs:subClassOf :Event ;
+             rdfs:comment "Event that takes place during the Autumn" ;
+             rdfs:label "Autumn Event" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel
+:BeachHotel rdf:type owl:Class ;
+            rdfs:subClassOf :Hotel ;
+            rdfs:comment "A place where you can sleep comfortably next to the beach" ;
+            rdfs:label "Beach Hotel" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BussinesHotel
+:BussinesHotel rdf:type owl:Class ;
+               rdfs:subClassOf :Hotel ;
+               rdfs:comment "A place where you can sleep comfortably in a bussines enviorment" ;
+               rdfs:label "Bussines Hotel" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City
+:City rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :cityName ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ;
+      rdfs:comment "A place where you can do tourism" ;
+      rdfs:label "City" ;
+      rdfs:sameAs "https://dbpedia.org/page/City" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#CulturalAttraction
+:CulturalAttraction rdf:type owl:Class ;
+                    rdfs:subClassOf :Attraction ;
+                    rdfs:comment "A place where you can have a pleasant time doing an activity related to culture" ;
+                    rdfs:label "Cultural Attraction" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#EuropeanRestaurant
+:EuropeanRestaurant rdf:type owl:Class ;
+                    rdfs:subClassOf :Restaurant ;
+                    rdfs:comment "Place to eat foot from Europe" ;
+                    rdfs:label "European Restaurant" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Event
+:Event rdf:type owl:Class ;
+       rdfs:comment "Organized activities of very varied characteristics" ;
+       rdfs:label "Event" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel
+:Hotel rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :hotelName ;
+                         owl:someValuesFrom xsd:string
+                       ] ;
+       rdfs:comment "A place where you can sleep comfortably" ;
+       rdfs:label "Hotel" ;
+       rdfs:sameAs "https://dbpedia.org/page/Hotel" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#LuxuryHotel
+:LuxuryHotel rdf:type owl:Class ;
+             rdfs:subClassOf :Hotel ;
+             rdfs:comment "A place where you can sleep comfortably and luxuriously" ;
+             rdfs:label "Luxury Hotel" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#NaturalAttraction
+:NaturalAttraction rdf:type owl:Class ;
+                   rdfs:subClassOf :Attraction ;
+                   rdfs:comment "A place where you can have a pleasant time doing an activity related to nature" ;
+                   rdfs:label "Natural Attraction" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PrivateTransport
+:PrivateTransport rdf:type owl:Class ;
+                  rdfs:subClassOf :Transport ;
+                  owl:disjointWith :PublicTransport ;
+                  rdfs:comment "Way to get around the city with a private company" ;
+                  rdfs:label "PrivateTransport" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport
+:PublicTransport rdf:type owl:Class ;
+                 rdfs:subClassOf :Transport ;
+                 rdfs:comment "Way to get around the city with a public company" ;
+                 rdfs:label "PublicTransport" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Restaurant
+:Restaurant rdf:type owl:Class ;
+            rdfs:comment "Place to eat" ;
+            rdfs:label "Restaurant" ;
+            rdfs:sameAs "https://dbpedia.org/page/Restaurant" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#RuralHotel
+:RuralHotel rdf:type owl:Class ;
+            rdfs:subClassOf :Hotel ;
+            rdfs:comment "A place where you can sleep comfortably in a rural environment" ;
+            rdfs:label "Rural Hotel" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmericanRestaurant
+:SouthAmericanRestaurant rdf:type owl:Class ;
+                         rdfs:subClassOf :Restaurant ;
+                         rdfs:comment "Place to eat foot from South America" ;
+                         rdfs:label "South American Restaurant" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SpringEvent
+:SpringEvent rdf:type owl:Class ;
+             rdfs:subClassOf :Event ;
+             rdfs:comment "Event that takes place during the spring" ;
+             rdfs:label "Spring Event" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SummerEvent
+:SummerEvent rdf:type owl:Class ;
+             rdfs:subClassOf :Event ;
+             rdfs:comment "Avent that takes place during the summer" ;
+             rdfs:label "Summer Event" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Transport
+:Transport rdf:type owl:Class ;
+           rdfs:comment "Way to get around the city" ;
+           rdfs:label "Transport" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#TuristicHotel
+:TuristicHotel rdf:type owl:Class ;
+               rdfs:subClassOf :Hotel ;
+               rdfs:comment "A place where you can sleep comfortably, designed for tourism" ;
+               rdfs:label "Turistic Hotel" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent
+:WinterEvent rdf:type owl:Class ;
+             rdfs:subClassOf :Event ;
+             rdfs:comment "Event that takes place during the winter" ;
+             rdfs:label "Winter Event" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction1
+:ArchitecturalAttraction1 rdf:type owl:NamedIndividual ,
+                                   :ArchitecturalAttraction .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel1
+:BeachHotel1 rdf:type owl:NamedIndividual ,
+                      :BeachHotel ;
+             :isIn :City1 ;
+             :hotelName "Hotel Royal Barcelona" ;
+             :rating 4.0 .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City1
+:City1 rdf:type owl:NamedIndividual ,
+                :City ;
+       :cityName "Barcelona" ;
+       :location "41.3874, 2.1686" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport1
+:PublicTransport1 rdf:type owl:NamedIndividual ,
+                           :PublicTransport ;
+                  :transportType "Autobus" .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmercianRestaurant1
+:SouthAmercianRestaurant1 rdf:type owl:NamedIndividual ,
+                                   :SouthAmericanRestaurant .
+
+
+###  http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent1
+:WinterEvent1 rdf:type owl:NamedIndividual ,
+                       :WinterEvent ;
+              :goodToSleep :BeachHotel1 ;
+              :transportType "Esportiu" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ArchitecturalAttraction
+                :CulturalAttraction
+                :NaturalAttraction
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AsianRestaurant
+                :EuropeanRestaurant
+                :SouthAmericanRestaurant
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AutumnEvent
+                :SpringEvent
+                :SummerEvent
+                :WinterEvent
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BeachHotel
+                :BussinesHotel
+                :LuxuryHotel
+                :RuralHotel
+                :TuristicHotel
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/c> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/e> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/h> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/t> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Assign good sleeping hotels to events" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :City ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/c>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasEvent ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/c> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/e>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :isIn ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/h> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/c>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :goodToSleep ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/e> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/h>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Infer transport type based on its transportType property" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Transport ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/t>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :transportType ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/t> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "public"
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :PublicTransport ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/t>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Reciprocity between isIn and hasHotel" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :isIn ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/h> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/c>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasHotel ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/c> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/h>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

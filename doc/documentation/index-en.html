@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>Turisme Intel·ligent i Recomenacions</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent","name":"Turisme Intel·ligent i Recomenacions", "headline":"L’ontologia servira per descriure l’informació respecte el sector turistic a diferentes ciutats amb l’objectiu de recomenar les principals atraccions turistiques i restaurants als usuaris", "dateReleased":"Thu Apr 24 12:44:14 CEST 2025", "dateModified":"24/04/2025", "author":[{"@type":"Person","name":"Roger Vinyals Roig"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Turisme Intel·ligent i Recomenacions</h1>
+
+
+<dl>
+<dt>Modified on: 24/04/2025</dt>
+<dt>Latest version:</dt>
+<dd><a href="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent">http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent</a></dd>
+<dt>Authors:</dt>
+<dd>Roger Vinyals Roig</dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
+</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --></dl>
+
+<hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+L’ontologia servira per descriure l’informació respecte el sector turistic a diferentes ciutats amb l’objectiu de recomenar les principals atraccions turistiques i restaurants als usuaris</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>[Ontology NS Prefix]</b></td><td>&lt;http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent/&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>swrl</b></td><td>&lt;http://www.w3.org/2003/11/swrl#&gt;</td></tr>
+<tr><td><b>swrla</b></td><td>&lt;http://swrl.stanford.edu/ontologies/3.3/swrla.owl#&gt;</td></tr>
+<tr><td><b>swrlb</b></td><td>&lt;http://www.w3.org/2003/11/swrlb#&gt;</td></tr>
+<tr><td><b>turisme_inteligent</b></td><td>&lt;http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">[Ontology Name]: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#ArchitecturalAttraction"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction">Architectural Attraction</a>
+   </li>
+   <li>
+      <a href="#AsianRestaurant"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AsianRestaurant">Asian Restaurant</a>
+   </li>
+   <li>
+      <a href="#Attraction"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Attraction">Attraction</a>
+   </li>
+   <li>
+      <a href="#AutumnEvent"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AutumnEvent">Autumn Event</a>
+   </li>
+   <li>
+      <a href="#BeachHotel"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel">Beach Hotel</a>
+   </li>
+   <li>
+      <a href="#BussinesHotel"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BussinesHotel">Bussines Hotel</a>
+   </li>
+   <li>
+      <a href="#City"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a>
+   </li>
+   <li>
+      <a href="#CulturalAttraction"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#CulturalAttraction">Cultural Attraction</a>
+   </li>
+   <li>
+      <a href="#EuropeanRestaurant"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#EuropeanRestaurant">European Restaurant</a>
+   </li>
+   <li>
+      <a href="#Event"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Event">Event</a>
+   </li>
+   <li>
+      <a href="#Hotel"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a>
+   </li>
+   <li>
+      <a href="#LuxuryHotel"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#LuxuryHotel">Luxury Hotel</a>
+   </li>
+   <li>
+      <a href="#NaturalAttraction"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#NaturalAttraction">Natural Attraction</a>
+   </li>
+   <li>
+      <a href="#PrivateTransport"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PrivateTransport">PrivateTransport</a>
+   </li>
+   <li>
+      <a href="#PublicTransport"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport">PublicTransport</a>
+   </li>
+   <li>
+      <a href="#Restaurant"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Restaurant">Restaurant</a>
+   </li>
+   <li>
+      <a href="#RuralHotel"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#RuralHotel">Rural Hotel</a>
+   </li>
+   <li>
+      <a href="#SouthAmericanRestaurant"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmericanRestaurant">South American Restaurant</a>
+   </li>
+   <li>
+      <a href="#SpringEvent"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SpringEvent">Spring Event</a>
+   </li>
+   <li>
+      <a href="#SummerEvent"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SummerEvent">Summer Event</a>
+   </li>
+   <li>
+      <a href="#Transport"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Transport">Transport</a>
+   </li>
+   <li>
+      <a href="#TuristicHotel"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#TuristicHotel">Turistic Hotel</a>
+   </li>
+   <li>
+      <a href="#WinterEvent"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent">Winter Event</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#goodToSleep"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#goodToSleep">goodToSleep</a>
+   </li>
+   <li>
+      <a href="#hasAttraction"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasAttraction">hasAttraction</a>
+   </li>
+   <li>
+      <a href="#hasEvent"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasEvent">hasEvent</a>
+   </li>
+   <li>
+      <a href="#hasHotel"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasHotel">hasHotel</a>
+   </li>
+   <li>
+      <a href="#hasRestaurant"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasRestaurant">hasRestaurants</a>
+   </li>
+   <li>
+      <a href="#isIn"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#isIn">Is In</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#location"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#location">Location</a>
+   </li>
+   <li>
+      <a href="#cityName"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#cityName">Name</a>
+   </li>
+   <li>
+      <a href="#hotelName"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hotelName">Name</a>
+   </li>
+   <li>
+      <a href="#rating"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#rating">Rating</a>
+   </li>
+   <li>
+      <a href="#transportType"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#transportType">transport Type</a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"
+         title="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled">
+         <span>is Rule Enabled</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2000/01/rdf-schema#sameAs" title="http://www.w3.org/2000/01/rdf-schema#sameAs">
+         <span>same As</span>
+      </a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#ArchitecturalAttraction1"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction1">
+         <span>Architectural Attraction1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#BeachHotel1"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel1">
+         <span>Beach Hotel1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#City1"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City1">
+         <span>City1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#PublicTransport1"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport1">
+         <span>Public Transport1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#SouthAmercianRestaurant1"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmercianRestaurant1">
+         <span>South Amercian Restaurant1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#WinterEvent1"
+         title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent1">
+         <span>Winter Event1</span>
+      </a>
+   </li>
+</ul><h4> SWRL Rules </h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#d4e691">Assign good sleeping hotels to events</a>
+   </li>
+   <li>
+      <a href="#d4e795">Infer transport type based on its transportType property</a>
+   </li>
+   <li>
+      <a href="#d4e876">Reciprocity between isIn and hasHotel</a>
+   </li>
+</ul>
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">[Ontology Name]: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">L’ontologia servira per descriure l’informació respecte el sector turistic a diferentes ciutats amb l’objectiu de recomenar les principals atraccions turistiques i restaurants als usuaris</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for [Ontology Name] classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by [Ontology Name].
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#ArchitecturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction">Architectural Attraction</a></li>
+  <li><a href="#AsianRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AsianRestaurant">Asian Restaurant</a></li>
+  <li><a href="#Attraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Attraction">Attraction</a></li>
+  <li><a href="#AutumnEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AutumnEvent">Autumn Event</a></li>
+  <li><a href="#BeachHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel">Beach Hotel</a></li>
+  <li><a href="#BussinesHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BussinesHotel">Bussines Hotel</a></li>
+  <li><a href="#City" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a></li>
+  <li><a href="#CulturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#CulturalAttraction">Cultural Attraction</a></li>
+  <li><a href="#EuropeanRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#EuropeanRestaurant">European Restaurant</a></li>
+  <li><a href="#Event" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Event">Event</a></li>
+  <li><a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a></li>
+  <li><a href="#LuxuryHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#LuxuryHotel">Luxury Hotel</a></li>
+  <li><a href="#NaturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#NaturalAttraction">Natural Attraction</a></li>
+  <li><a href="#PrivateTransport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PrivateTransport">PrivateTransport</a></li>
+  <li><a href="#PublicTransport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport">PublicTransport</a></li>
+  <li><a href="#Restaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Restaurant">Restaurant</a></li>
+  <li><a href="#RuralHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#RuralHotel">Rural Hotel</a></li>
+  <li><a href="#SouthAmericanRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmericanRestaurant">South American Restaurant</a></li>
+  <li><a href="#SpringEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SpringEvent">Spring Event</a></li>
+  <li><a href="#SummerEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SummerEvent">Summer Event</a></li>
+  <li><a href="#Transport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Transport">Transport</a></li>
+  <li><a href="#TuristicHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#TuristicHotel">Turistic Hotel</a></li>
+  <li><a href="#WinterEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent">Winter Event</a></li>
+ </ul>
+ <div class="entity" id="ArchitecturalAttraction">
+  <h3>Architectural Attraction<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction</p>
+  <div class="comment">
+   <span class="markdown">A place where you can have a pleasant time doing an activity related to architecture</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#ArchitecturalAttraction1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction1">Architectural Attraction1</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CulturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#CulturalAttraction">Cultural Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#NaturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#NaturalAttraction">Natural Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="AsianRestaurant">
+  <h3>Asian Restaurant<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AsianRestaurant</p>
+  <div class="comment">
+   <span class="markdown">Place to eat foot from Asia</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Restaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#EuropeanRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#EuropeanRestaurant">European Restaurant</a> <sup class="type-c" title="class">c</sup>, <a href="#SouthAmericanRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmericanRestaurant">South American Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Attraction">
+  <h3>Attraction<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Attraction</p>
+  <div class="comment">
+   <span class="markdown">A place where you can have a pleasant time doing an activity</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd></dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ArchitecturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction">Architectural Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#CulturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#CulturalAttraction">Cultural Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#NaturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#NaturalAttraction">Natural Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasAttraction">hasAttraction</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Restaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="AutumnEvent">
+  <h3>Autumn Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AutumnEvent</p>
+  <div class="comment">
+   <span class="markdown">Event that takes place during the Autumn</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#SpringEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SpringEvent">Spring Event</a> <sup class="type-c" title="class">c</sup>, <a href="#SummerEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SummerEvent">Summer Event</a> <sup class="type-c" title="class">c</sup>, <a href="#WinterEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent">Winter Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="BeachHotel">
+  <h3>Beach Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel</p>
+  <div class="comment">
+   <span class="markdown">A place where you can sleep comfortably next to the beach</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#BeachHotel1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel1">Beach Hotel1</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#BussinesHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BussinesHotel">Bussines Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#LuxuryHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#LuxuryHotel">Luxury Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#RuralHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#RuralHotel">Rural Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TuristicHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#TuristicHotel">Turistic Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="BussinesHotel">
+  <h3>Bussines Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BussinesHotel</p>
+  <div class="comment">
+   <span class="markdown">A place where you can sleep comfortably in a bussines enviorment</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#BeachHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel">Beach Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#LuxuryHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#LuxuryHotel">Luxury Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#RuralHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#RuralHotel">Rural Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TuristicHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#TuristicHotel">Turistic Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="City">
+  <h3>City<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City</p>
+  <div class="comment">
+   <span class="markdown">A place where you can do tourism</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#cityName" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#cityName">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="logic">min</span> 1
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#location" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#location">Location</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#cityName" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#cityName">Name</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasAttraction">hasAttraction</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasEvent">hasEvent</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasHotel">hasHotel</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasRestaurant">hasRestaurants</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#isIn" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#isIn">Is In</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#City1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City1">City1</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CulturalAttraction">
+  <h3>Cultural Attraction<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#CulturalAttraction</p>
+  <div class="comment">
+   <span class="markdown">A place where you can have a pleasant time doing an activity related to culture</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ArchitecturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction">Architectural Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#NaturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#NaturalAttraction">Natural Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="EuropeanRestaurant">
+  <h3>European Restaurant<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#EuropeanRestaurant</p>
+  <div class="comment">
+   <span class="markdown">Place to eat foot from Europe</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Restaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#AsianRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AsianRestaurant">Asian Restaurant</a> <sup class="type-c" title="class">c</sup>, <a href="#SouthAmericanRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmericanRestaurant">South American Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Event">
+  <h3>Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Event</p>
+  <div class="comment">
+   <span class="markdown">Organized activities of very varied characteristics</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#AutumnEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AutumnEvent">Autumn Event</a> <sup class="type-c" title="class">c</sup>, <a href="#SpringEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SpringEvent">Spring Event</a> <sup class="type-c" title="class">c</sup>, <a href="#SummerEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SummerEvent">Summer Event</a> <sup class="type-c" title="class">c</sup>, <a href="#WinterEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent">Winter Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#goodToSleep" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#goodToSleep">goodToSleep</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasEvent">hasEvent</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Hotel">
+  <h3>Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel</p>
+  <div class="comment">
+   <span class="markdown">A place where you can sleep comfortably</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd></dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#BeachHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel">Beach Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#BussinesHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BussinesHotel">Bussines Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#LuxuryHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#LuxuryHotel">Luxury Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#RuralHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#RuralHotel">Rural Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TuristicHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#TuristicHotel">Turistic Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#isIn" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#isIn">Is In</a> <sup class="type-op" title="object property">op</sup>, <a href="#hotelName" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hotelName">Name</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#rating" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#rating">Rating</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#goodToSleep" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#goodToSleep">goodToSleep</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasHotel">hasHotel</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="LuxuryHotel">
+  <h3>Luxury Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#LuxuryHotel</p>
+  <div class="comment">
+   <span class="markdown">A place where you can sleep comfortably and luxuriously</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#BeachHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel">Beach Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#BussinesHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BussinesHotel">Bussines Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#RuralHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#RuralHotel">Rural Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TuristicHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#TuristicHotel">Turistic Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="NaturalAttraction">
+  <h3>Natural Attraction<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#NaturalAttraction</p>
+  <div class="comment">
+   <span class="markdown">A place where you can have a pleasant time doing an activity related to nature</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ArchitecturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction">Architectural Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#CulturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#CulturalAttraction">Cultural Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PrivateTransport">
+  <h3>PrivateTransport<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PrivateTransport</p>
+  <div class="comment">
+   <span class="markdown">Way to get around the city with a private company</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Transport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#PublicTransport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport">PublicTransport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PublicTransport">
+  <h3>PublicTransport<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport</p>
+  <div class="comment">
+   <span class="markdown">Way to get around the city with a public company</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Transport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#PublicTransport1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport1">Public Transport1</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#PrivateTransport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PrivateTransport">PrivateTransport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Restaurant">
+  <h3>Restaurant<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Restaurant</p>
+  <div class="comment">
+   <span class="markdown">Place to eat</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#AsianRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AsianRestaurant">Asian Restaurant</a> <sup class="type-c" title="class">c</sup>, <a href="#EuropeanRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#EuropeanRestaurant">European Restaurant</a> <sup class="type-c" title="class">c</sup>, <a href="#SouthAmericanRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmericanRestaurant">South American Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasRestaurant">hasRestaurants</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RuralHotel">
+  <h3>Rural Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#RuralHotel</p>
+  <div class="comment">
+   <span class="markdown">A place where you can sleep comfortably in a rural environment</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#BeachHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel">Beach Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#BussinesHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BussinesHotel">Bussines Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#LuxuryHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#LuxuryHotel">Luxury Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TuristicHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#TuristicHotel">Turistic Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SouthAmericanRestaurant">
+  <h3>South American Restaurant<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmericanRestaurant</p>
+  <div class="comment">
+   <span class="markdown">Place to eat foot from South America</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Restaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#SouthAmercianRestaurant1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmercianRestaurant1">South Amercian Restaurant1</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#AsianRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AsianRestaurant">Asian Restaurant</a> <sup class="type-c" title="class">c</sup>, <a href="#EuropeanRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#EuropeanRestaurant">European Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SpringEvent">
+  <h3>Spring Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SpringEvent</p>
+  <div class="comment">
+   <span class="markdown">Event that takes place during the spring</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#AutumnEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AutumnEvent">Autumn Event</a> <sup class="type-c" title="class">c</sup>, <a href="#SummerEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SummerEvent">Summer Event</a> <sup class="type-c" title="class">c</sup>, <a href="#WinterEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent">Winter Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SummerEvent">
+  <h3>Summer Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SummerEvent</p>
+  <div class="comment">
+   <span class="markdown">Avent that takes place during the summer</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#AutumnEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AutumnEvent">Autumn Event</a> <sup class="type-c" title="class">c</sup>, <a href="#SpringEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SpringEvent">Spring Event</a> <sup class="type-c" title="class">c</sup>, <a href="#WinterEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent">Winter Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Transport">
+  <h3>Transport<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Transport</p>
+  <div class="comment">
+   <span class="markdown">Way to get around the city</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#PrivateTransport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PrivateTransport">PrivateTransport</a> <sup class="type-c" title="class">c</sup>, <a href="#PublicTransport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport">PublicTransport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#transportType" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#transportType">transport Type</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TuristicHotel">
+  <h3>Turistic Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#TuristicHotel</p>
+  <div class="comment">
+   <span class="markdown">A place where you can sleep comfortably, designed for tourism</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#BeachHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel">Beach Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#BussinesHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BussinesHotel">Bussines Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#LuxuryHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#LuxuryHotel">Luxury Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#RuralHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#RuralHotel">Rural Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="WinterEvent">
+  <h3>Winter Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent</p>
+  <div class="comment">
+   <span class="markdown">Event that takes place during the winter</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#WinterEvent1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent1">Winter Event1</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#AutumnEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#AutumnEvent">Autumn Event</a> <sup class="type-c" title="class">c</sup>, <a href="#SpringEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SpringEvent">Spring Event</a> <sup class="type-c" title="class">c</sup>, <a href="#SummerEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SummerEvent">Summer Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#goodToSleep" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#goodToSleep">goodToSleep</a></li>
+  <li><a href="#hasAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasAttraction">hasAttraction</a></li>
+  <li><a href="#hasEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasEvent">hasEvent</a></li>
+  <li><a href="#hasHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasHotel">hasHotel</a></li>
+  <li><a href="#hasRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasRestaurant">hasRestaurants</a></li>
+  <li><a href="#isIn" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#isIn">Is In</a></li>
+ </ul>
+ <div class="entity" id="goodToSleep">
+  <h3>goodToSleep<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#goodToSleep</p>
+  <div class="comment">
+   <span class="markdown">Relate an event or an attraction with a hotel where you can sleep nearby</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Event" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasAttraction">
+  <h3>hasAttraction<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasAttraction</p>
+  <div class="comment">
+   <span class="markdown">If a City have attractions</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Attraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasEvent">
+  <h3>hasEvent<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasEvent</p>
+  <div class="comment">
+   <span class="markdown">If a City have events</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Event" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasHotel">
+  <h3>hasHotel<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasHotel</p>
+  <div class="comment">
+   <span class="markdown">If a City have hotels</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRestaurant">
+  <h3>hasRestaurants<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasRestaurant</p>
+  <div class="comment">
+   <span class="markdown">If a City have restaurants</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Restaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isIn">
+  <h3>Is In<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#isIn</p>
+  <div class="comment">
+   <span class="markdown">Relates the places with the city where they are</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#location" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#location">Location</a></li>
+  <li><a href="#cityName" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#cityName">Name</a></li>
+  <li><a href="#hotelName" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hotelName">Name</a></li>
+  <li><a href="#rating" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#rating">Rating</a></li>
+  <li><a href="#transportType" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#transportType">transport Type</a></li>
+ </ul>
+ <div class="entity" id="location">
+  <h3>Location<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#location</p>
+  <div class="comment">
+   <span class="markdown">Geographic coordinates of the city</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="cityName">
+  <h3>Name<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#cityName</p>
+  <div class="comment">
+   <span class="markdown">City Name</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hotelName">
+  <h3>Name<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hotelName</p>
+  <div class="comment">
+   <span class="markdown">Hotel Name</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="rating">
+  <h3>Rating<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#rating</p>
+  <div class="comment">
+   <span class="markdown">Rating by the users</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="transportType">
+  <h3>transport Type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#transportType</p>
+  <div class="comment">
+   <span class="markdown">Type of transport</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Transport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="annotationproperties">
+ <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+ <ul class="hlist">
+  <li><a href="#http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled" title="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"> <span>is Rule Enabled</span> </a></li>
+  <li><a href="#http://www.w3.org/2000/01/rdf-schema#sameAs" title="http://www.w3.org/2000/01/rdf-schema#sameAs"> <span>same As</span> </a></li>
+ </ul>
+ <div class="entity" id="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled">
+  <h3>is Rule Enabled<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/2000/01/rdf-schema#sameAs">
+  <h3>same As<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2000/01/rdf-schema#sameAs</p>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#ArchitecturalAttraction1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction1"> <span>Architectural Attraction1</span> </a></li>
+  <li><a href="#BeachHotel1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel1"> <span>Beach Hotel1</span> </a></li>
+  <li><a href="#City1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City1"> <span>City1</span> </a></li>
+  <li><a href="#PublicTransport1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport1"> <span>Public Transport1</span> </a></li>
+  <li><a href="#SouthAmercianRestaurant1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmercianRestaurant1"> <span>South Amercian Restaurant1</span> </a></li>
+  <li><a href="#WinterEvent1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent1"> <span>Winter Event1</span> </a></li>
+ </ul>
+ <div class="entity" id="ArchitecturalAttraction1">
+  <h3>Architectural Attraction1<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction1</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#ArchitecturalAttraction" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#ArchitecturalAttraction">Architectural Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="BeachHotel1">
+  <h3>Beach Hotel1<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel1</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#BeachHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel">Beach Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#isIn" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#isIn">Is In</a> <sup class="type-op" title="object property">op</sup> <a href="#City1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City1">City1</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hotelName" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hotelName">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Hotel Royal Barcelona"</span>
+   </dd>
+   <dd>
+    <a href="#rating" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#rating">Rating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.0"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="City1">
+  <h3>City1<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City1</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#cityName" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#cityName">Name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Barcelona"</span>
+   </dd>
+   <dd>
+    <a href="#location" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#location">Location</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"41.3874, 2.1686"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PublicTransport1">
+  <h3>Public Transport1<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport1</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#PublicTransport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport">PublicTransport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#transportType" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#transportType">transport Type</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Autobus"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SouthAmercianRestaurant1">
+  <h3>South Amercian Restaurant1<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmercianRestaurant1</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#SouthAmericanRestaurant" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#SouthAmericanRestaurant">South American Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="WinterEvent1">
+  <h3>Winter Event1<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent1</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#WinterEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#WinterEvent">Winter Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#goodToSleep" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#goodToSleep">goodToSleep</a> <sup class="type-op" title="object property">op</sup> <a href="#BeachHotel1" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#BeachHotel1">Beach Hotel1</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#transportType" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#transportType">transport Type</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Esportiu"</span>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="swrlrules">
+ <h3 id="swrlrules" class="list">SWRL rules</h3>
+ <ul class="hlist">
+  <li><a href="#d4e691">Assign good sleeping hotels to events</a></li>
+  <li><a href="#d4e795">Infer transport type based on its transportType property</a></li>
+  <li><a href="#d4e876">Reciprocity between isIn and hasHotel</a></li>
+ </ul>
+ <div class="entity" id="d4e691">
+  <h3>Assign good sleeping hotels to events<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p><br><br><a href="#City" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#City">City</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#hasEvent" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasEvent">hasEvent</a> <sup class="type-op" title="object property">op</sup>(?,?) , <a href="#isIn" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#isIn">Is In</a> <sup class="type-op" title="object property">op</sup>(?,?) -&gt; <a href="#goodToSleep" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#goodToSleep">goodToSleep</a> <sup class="type-op" title="object property">op</sup>(?,?)</p>
+ </div>
+ <div class="entity" id="d4e795">
+  <h3>Infer transport type based on its transportType property<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p><br><br><a href="#Transport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#Transport">Transport</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#transportType" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#transportType">transport Type</a> <sup class="type-dp" title="data property">dp</sup>(?,"public") -&gt; <a href="#PublicTransport" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#PublicTransport">PublicTransport</a> <sup class="type-c" title="class">c</sup>(?)</p>
+ </div>
+ <div class="entity" id="d4e876">
+  <h3>Reciprocity between isIn and hasHotel<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p><br><br><a href="#isIn" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#isIn">Is In</a> <sup class="type-op" title="object property">op</sup>(?,?) -&gt; <a href="#hasHotel" title="http://www.semanticweb.org/roger/ontologies/2025/3/turisme_inteligent#hasHotel">hasHotel</a> <sup class="type-op" title="object property">op</sup>(?,?)</p>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>
